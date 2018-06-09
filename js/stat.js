@@ -1,4 +1,3 @@
-
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
@@ -37,11 +36,9 @@ window.renderStatistics = function (ctx, names, times) {
 
   var maxTime = getMaxElement(times);
 
-  var names = ['Вы', 'Суши', 'Милка', 'Греко'];
+  names = ['Вы', 'Суши', 'Милка', 'Греко'];
 
   for (var i = 0; i < names.length; i++) {
-
-
     ctx.fillText(Math.round(times[i]),
         CLOUD_X + GAP + i * (GAP + barWidth), CLOUD_Y + 1.2 * GAP + BAR_HEIGHT - (BAR_HEIGHT * times[i]) / maxTime + 2 * FONT_GAP / 3);
 
@@ -49,9 +46,8 @@ window.renderStatistics = function (ctx, names, times) {
 
     if (names[i] !== 'Вы') {
       // imagined formule for the BLUE in RGB
-      ctx.fillStyle = 'rgba(0, 18, ' + Math.floor(255 - 40 * i) + ', ' + Math.round(Math.random()) + 0.2 + ')' ;
+      ctx.fillStyle = 'rgba(0, 18, ' + Math.floor(255 - 40 * i) + ', ' + Math.round(Math.random()) + 0.2 + ')';
     }
-
     ctx.fillRect(CLOUD_X + GAP + i * (GAP + barWidth), CLOUD_Y + 1.2 * GAP + BAR_HEIGHT - (BAR_HEIGHT * times[i]) / maxTime + FONT_GAP,
         barWidth, (BAR_HEIGHT * times[i]) / maxTime);
 
