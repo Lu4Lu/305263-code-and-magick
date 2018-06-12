@@ -80,7 +80,7 @@ function getRandomItemFromArrayAndRemoveItem(arr) {
       coatColor: getRandomItemFromArrayAndRemoveItem(MOCK_COAT_COLOR),
       eyesColor: getRandomItemFromArrayAndRemoveItem(MOCK_EYES_COLOR)
     };
-    wizards.push(wizard);
+    window.wizards.push(wizard);
   }
 })();
 
@@ -95,8 +95,8 @@ var renderWizard = function (wizard) {
 };
 
 var fragment = document.createDocumentFragment();
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
+for (var i = 0; i < window.wizards.length; i++) {
+  fragment.appendChild(renderWizard(window.wizards[i]));
 }
 similarListElement.appendChild(fragment);
 
