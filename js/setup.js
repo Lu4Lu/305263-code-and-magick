@@ -1,6 +1,6 @@
 'use strict';
 var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
+// userDialog.classList.remove('hidden');
 
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 
@@ -101,6 +101,7 @@ for (var i = 0; i < window.wizards.length; i++) {
 similarListElement.appendChild(fragment);
 
 // userDialog.querySelector('.setup-similar').classList.remove('hidden');
+// module4-task1
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 
@@ -149,10 +150,10 @@ var closePopup = function () {
 
 // random array item
 function getRandomItemFromArray(arr) {
-  // get an array element with the random index
   return arr[getRandomIndex(arr)];
 }
 
+// fill wizard options color
 var fillWizardCoat = function () {
   var randomCoatColor = getRandomItemFromArray(COAT_COLORS);
   wizardCoat.style.fill = randomCoatColor;
@@ -171,6 +172,7 @@ var fillWizardFireball = function () {
   setup.querySelector('input[name="fireball-color"]').value = randomFireballColor;
 };
 
+// change color by click
 wizardCoat.addEventListener('click', function () {
   fillWizardCoat();
 });
@@ -203,12 +205,12 @@ var onPopupEscPress = function (evt) {
   }
 };
 
-// open setup by mouseclick on setupOpen
+// open setup by mouse click on setupOpen
 setupOpen.addEventListener('click', function () {
   openPopup();
 });
 
-// close setup by mouseclick on setupClose
+// close setup by mouse click on setupClose
 setupClose.addEventListener('click', function () {
   closePopup();
 });
@@ -220,7 +222,20 @@ setupOpen.addEventListener('keydown', function (evt) {
   }
 });
 
-// open setup by press enter on setup close
+// forbid esc press if the focus is on user name
+userNameInput.addEventListener('keydown', function (evt) {
+  evt.stopPropagation();
+});
+
+
+// open setup by press enwter on setup close
+setupClose.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    closePopup();
+  }
+});
+
+// submit form by press enter on submit
 setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
